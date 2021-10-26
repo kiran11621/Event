@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if((isset($_SESSION['role']) && $_SESSION['role'] == "admin")){
+    
+}else{
+
+    http_response_code(404);
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +33,8 @@
     <link rel="stylesheet" href="navbar.css" />
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <title>Admin - View Events</title>
-
+    <title>Admin - View Team</title>
+    <link href="lpv_logo.png" rel="icon">
     <?php 
         include 'conn.php';
     ?>
@@ -51,9 +62,6 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="view_submission.php">Registration & Submission</a>
-                </li>
-                <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teams</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
@@ -66,6 +74,12 @@
                 </li>
                 <li>
                     <a href="view_contact.php">Contact</a>
+                </li>
+                <li>
+                    <a href="add_to_gallery.php">Gallery</a>
+                </li>
+                <li>
+                    <a href="logout.php">Logout</a>
                 </li>
             </ul>
 
@@ -94,10 +108,10 @@
                                 <th>Biography</th>
                                 <th>Education</th>
                                 <th>Profile pic</th>
-                                <th>fb id</th>
-                                <th>twitter id</th>
-                                <th>insta id</th>
-                                <th>linkedin id</th>
+                                <th>Facebook id</th>
+                                <th>Twitter id</th>
+                                <th>Instagram id</th>
+                                <th>LinkedIn id</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -113,9 +127,7 @@
                                 $run_delete = mysqli_query($conn, $delete);
     
                                 if ($run_delete === true) {
-                                    echo "Record Deleted Successfully!";
                                 } else {
-                                    echo "Record not Deleted!";
                                 }
                             }
 

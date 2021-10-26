@@ -5,14 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>LPV Events - Contact Us</title>
+    <title>LPV Events - About Us</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+    <link href="assets/img/lpv_logo.png" rel="icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -47,11 +45,11 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link " href="index.php">Home</a></li>
-                    <li><a class="nav-link" href="about.php">About</a></li>
+                    <li><a class="nav-link active" href="about.php">About</a></li>
                     <li><a class="getstarted" href="ongoing.php">Ongoing Events</a></li>
                     <li><a class="nav-link" href="gallery.php">Gallery</a></li>
                     <li><a class="nav-link" href="team.php">Team</a></li>
-                    <li><a class="nav-link active" href="contact.php">Contact</a></li>
+                    <li><a class="nav-link" href="contact.php">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -71,46 +69,53 @@
 
             <div class="row content">
                 <div class="col-lg">
-                    <p>
-                        LPV Weltweit Solutions Private Limited is the group company of LPV Weltweit Group and is
-                        committed to offering value added services to your HR, Legal, Accounts, Finance, and Company
-                        Secretarial needs, including need based processes, systems, and performance
-                        enhancement’s so that business can achieve the pre-defined objectives and targets. </p>
-                    <ul>
-                        <li><i class="ri-check-double-line"></i> Our expertise services in business strategy, Legal
-                            and Compliance management, various options to start an new business, Manpower and
-                            management consulting enable us to bring a unique approach
-                            to business solutions.</li>
-                        <li><i class="ri-check-double-line"></i> Our strategy is understanding company needs and
-                            providing the best suitable action out of the available options.</li>
-                        <li><i class="ri-check-double-line"></i> For the Human Capital we provide the real resource
-                            rather than just resume.</li>
-                        <li><i class="ri-check-double-line"></i> As a Corporate Consultants and Advisors, we ensure
-                            that we provide appropriate resolution to the client within the time frame with the best
-                            quality Services.</li>
-                    </ul>
-                    <p>As a recruitment consultant, We provide to our clients only those resources who are professionally and personally compatible and fit within the company’s environment. We always pride ourselves to maintain highest professional standards. Complete confidentiality is maintained in our relationship with the client and the candidate. Each resource registered with us would have been interviewed and assessed on personal attributes, academic/ professional qualifications, job knowledge, work experience and growth potential.
+                       <p>
+                       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque voluptatibus similique ex dolor iusto nemo architecto.  </p>
+               
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, labore.
                     </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo molestias, atque quaerat reiciendis animi ullam officia corporis!</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit ab voluptas tenetur quis necessitatibus quos atque repudiandae debitis distinctio alias! </p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis nam modi quidem a cupiditate deleniti dignissimos amet assumenda inventore, sunt facere.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+            <div class="container" data-aos="zoom-in">
+
+                <div class="row">
+                    <div class="col-lg-9 text-center text-lg-start">
+                        <h3>Contact</h3>
+                        <p> Please fill out the form below to inquire about our work in LPV Events.</p>
+                    </div>
+                    <div class="col-lg-3 cta-btn-container text-center">
+                        <a class="cta-btn align-middle" href="contact.php">Contact Us</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End Cta Section -->
+
     </main>
+
+    
     <!-- End #main -->
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <!-- End Services Section -->
     <footer>
-        <div style="background-color: #37517e; position: absolute; bottom: 0; width: 100%;">
-            <div class="container footer-bottom clearfix">
-                <div class="copyrigh text-bright" style="color: white; text-align:center; padding: 5px;">
-                    &copy; Copyright <strong><span> LPV Weltweit Solutions Private Limited</span></strong>. All Rights Reserved
-                    <p>CIN# U74999DL2020PTC364712</p>
+            <div style="background-color: #37517e; bottom:0;">
+                <div class="container footer-bottom clearfix text-bright">
+                    <div class="copyrigh text-bright" style="color: white; text-align:center; padding: 5px;">
+                    &copy; Copyright <strong><span> Harshkumar-14, Surajit-21, Kiran-50</span></strong>. All Rights Reserved
+                </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
     <!-- End Footer -->
     <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>

@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if((isset($_SESSION['role']) && $_SESSION['role'] == "admin")){
+    
+}else{
+    http_response_code(404);
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +21,7 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link href="lpv_logo.png" rel="icon">
 
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
@@ -22,7 +33,7 @@
     <link rel="stylesheet" href="navbar.css" />
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Admin - View Contacts</title>
 
     <?php 
         include 'conn.php';
@@ -51,21 +62,24 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="view_submission.php">Registration & Submission</a>
-                </li>
-                <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teams</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                             <a href="view_team.php">View</a>
                         </li>
                         <li>
-                            <a href="add_emp.php">Add Employee</a>
+                            <a href="add_team.php">Add Employee</a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a href="view_contact.php">Contact</a>
+                </li>
+                <li>
+                    <a href="add_to_gallery.php">Gallery</a>
+                </li>
+                <li>
+                    <a href="logout.php">Logout</a>
                 </li>
             </ul>
 
@@ -89,7 +103,7 @@
                             <th>Mobile No.</th>
                             <th>Subject</th>
                             <th>Message</th>
-                            <th>delete</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -105,9 +119,7 @@
                             $run_delete = mysqli_query($conn, $delete);
 
                             if ($run_delete === true) {
-                                echo "Record Deleted Successfully!";
                             } else {
-                                echo "Record not Deleted!";
                             }
                         }
 
@@ -128,7 +140,7 @@
                                 <td><?php echo $mobile; ?></td>
                                 <td><?php echo $subject; ?></td>
                                 <td><?php echo $message; ?></td>
-                                <td><a class="btn btn-danger" href="view_contact.php?del=<?php echo $srno; ?>">delete</a></td>
+                                <td><a class="btn btn-danger" href="view_contact.php?del=<?php echo $srno; ?>">Delete</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>

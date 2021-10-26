@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if((isset($_SESSION['role']) && $_SESSION['role'] == "admin")){
+    
+}else{
+    http_response_code(404);
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,9 +30,9 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="navbar.css" />
-
+    <link href="lpv_logo.png" rel="icon">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Admin - View Ongoing Events</title>
 
     <?php 
         include 'conn.php';
@@ -51,21 +61,24 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="view_submission.php">Registration & Submission</a>
-                </li>
-                <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teams</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                             <a href="view_team.php">View</a>
                         </li>
                         <li>
-                            <a href="add_emp.php">Add Employee</a>
+                            <a href="add_team.php">Add Employee</a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a href="view_contact.php">Contact</a>
+                </li>
+                <li>
+                    <a href="add_to_gallery.php">Gallery</a>
+                </li>
+                <li>
+                    <a href="logout.php">Logout</a>
                 </li>
             </ul>
 
@@ -111,9 +124,7 @@
 
                                 $run_delete = mysqli_query($conn, $delete);
                                 if($run_delete === true) {
-                                    echo "record delete";
                                 } else {
-                                    echo "not";
                                 }
                             }
 

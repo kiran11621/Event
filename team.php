@@ -5,13 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>LPV Events - Contact Us</title>
+    <title>LPV Events - Team</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/img/lpv_logo.png" rel="icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -119,9 +118,8 @@
             <div style="background-color: #37517e; bottom:0;">
                 <div class="container footer-bottom clearfix text-bright">
                     <div class="copyrigh text-bright" style="color: white; text-align:center; padding: 5px;">
-                        &copy; Copyright <strong><span> LPV Weltweit Solutions Private Limited</span></strong>. All Rights Reserved
-                        <p>CIN# U74999DL2020PTC364712</p>
-                    </div>
+                    &copy; Copyright <strong><span> Harshkumar-14, Surajit-21, Kiran-50</span></strong>. All Rights Reserved
+                </div>
                 </div>
             </div>
         </footer>

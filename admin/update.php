@@ -1,8 +1,21 @@
+
+<?php
+session_start();
+
+if((isset($_SESSION['role']) && $_SESSION['role'] == "admin")){
+    
+}else{
+    http_response_code(404);
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+<link href="lpv_logo.png" rel="icon">
+    <title>Admin - Update Event Form</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -12,6 +25,8 @@
 </head>
 
 <body>
+    <br><br>
+    <h2 style="margin-left: 150px;"> Update Events Details </h2>
     <div class="container">
 
         <?php 
@@ -43,7 +58,7 @@
     
             ?>
 
-        
+        <br><br>
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="event_name">Event Name:</label>
@@ -105,10 +120,9 @@
             
         
             if ($run_update === True) {
-                echo "Data has inserted";
                 move_uploaded_file($tmp_name1, "event_poster/$image1");
+                header("Location: view_events.php");
             } else {
-                echo "try agian";
             }
 
             unset($_POST["insert_btn"]);

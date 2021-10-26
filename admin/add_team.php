@@ -1,3 +1,12 @@
+<?php
+// session_start();
+
+// if ((isset($_SESSION['role']) && $_SESSION['role'] == "admin")) {
+// } else {
+//     http_response_code(404);
+//     exit();
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,12 +28,12 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="navbar.css" />
-
+    <link href="lpv_logo.png" rel="icon">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Admin - Add Team</title>
 
     <?php
-        include 'conn.php';
+    include 'conn.php';
     ?>
 </head>
 
@@ -39,7 +48,7 @@
             <ul class="list-unstyled components">
                 <p>Admin Site</p>
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Events</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="view_events.php">View</a>
@@ -50,21 +59,24 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="view_submission.php">Registration & Submission</a>
-                </li>
-                <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teams</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                             <a href="view_team.php">View</a>
                         </li>
                         <li>
-                            <a href="add_emp.php">Add Employee</a>
+                            <a href="add_team.php">Add Employee</a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a href="view_contact.php">Contact</a>
+                </li>
+                <li>
+                    <a href="add_to_gallery.php">Gallery</a>
+                </li>
+                <li>
+                    <a href="logout.php">Logout</a>
                 </li>
             </ul>
 
@@ -77,6 +89,37 @@
                 <h2>Add Employee</h2>
                 <hr>
                 <br>
+                <?php
+
+                if (isset($_POST["insert_btn"])) {
+                    $t_name = $_POST["name"];
+                    $t_designation = $_POST["designation"];
+                    $t_email = $_POST["email"];
+                    $t_mobile = $_POST["mobile"];
+                    $t_intro = $_POST["shortntr"];
+                    $t_biography = $_POST["biography"];
+                    $t_education = $_POST["education"];
+                    $image1 = $_FILES["image"]['name'];
+                    $tmp_name = $_FILES["image"]['tmp_name'];
+                    $f_id = $_POST["fb"];
+                    $t_id = $_POST["twit"];
+                    $i_id = $_POST["insta"];
+                    $l_id = $_POST["linkedin"];
+
+                    $insert = "INSERT INTO `team` (`t_name`, `t_designation`, `t_email`, `t_mobile`, `t_intro`, `t_biography`, `t_education`, `t_profile_image`, `t_facebook`, `t_twitter`, `t_instagram`, `t_linkedin`) VALUES ('$t_name', '$t_designation', '$t_email', '$t_mobile', '$t_intro', '$t_biography', '$t_education', '$image1', '$f_id', '$t_id', '$i_id', '$l_id')";
+                    $run_insert = mysqli_query($conn, $insert);
+
+                    if ($run_insert === True) {
+
+                        move_uploaded_file($tmp_name, "team_profile_picture/$image1");
+                        header("Location: view_team.php");
+                        exit();
+                    } else {
+                    }
+
+                    unset($_POST["insert_btn"]);
+                }
+                ?>
 
                 <!-- add code here -->
                 <div class="container">
@@ -114,7 +157,9 @@
                             <label for="image">Profile Image:</label>
                             <input type="file" class="form-control" id="image" placeholder="" name="image" required>
                         </div>
-
+                        <div class="form-group">
+                            <label for="e_poster" style="color: Red;">If User is not Present on particular social media platform in the resceptive ID asked input '#' (without quotes)</label>
+                        </div>
                         <div class="form-group">
                             <label for="fb">Facebook Id</label>
                             <input type="text" class="form-control" placeholder="Enter Facebook id" name="fb" required>
@@ -138,36 +183,7 @@
                         <input type="submit" name="insert_btn" class="btn btn-primary" />
                     </form>
 
-                    <?php
 
-                    if (isset($_POST["insert_btn"])) {
-                        $t_name = $_POST["name"];
-                        $t_designation = $_POST["designation"];
-                        $t_email = $_POST["email"];
-                        $t_mobile = $_POST["mobile"];
-                        $t_intro = $_POST["shortntr"];
-                        $t_biography = $_POST["biography"];
-                        $t_education = $_POST["education"];
-                        $image1 = $_FILES["image"]['name'];
-                        $tmp_name = $_FILES["image"]['tmp_name'];
-                        $f_id = $_POST["fb"];
-                        $t_id = $_POST["twit"];
-                        $i_id = $_POST["insta"];
-                        $l_id = $_POST["linkedin"];
-
-                        $insert = "INSERT INTO `team` (`t_name`, `t_designation`, `t_email`, `t_mobile`, `t_intro`, `t_biography`, `t_education`, `t_profile_image`, `t_facebook`, `t_twitter`, `t_instagram`, `t_linkedin`) VALUES ('$t_name', '$t_designation', '$t_email', '$t_mobile', '$t_intro', '$t_biography', '$t_education', '$image1', '$f_id', '$t_id', '$i_id', '$l_id')";
-                        $run_insert = mysqli_query($conn, $insert);
-
-                        if ($run_insert === True) {
-                            echo "Data has inserted";
-                            move_uploaded_file($tmp_name, "team_profile_picture/$image1");
-                        } else {
-                            echo "try agian";
-                        }
-                        
-                        unset($_POST["insert_btn"]);
-                    }
-                    ?>
                 </div>
             </div>
         </div>

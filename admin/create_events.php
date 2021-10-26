@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if((isset($_SESSION['role']) && $_SESSION['role'] == "admin")){
+    
+}else{
+    http_response_code(404);
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,9 +29,9 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="navbar.css" />
-
+    <link href="lpv_logo.png" rel="icon">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <title>Create Event</title>
+    <title>Admin - Create Event</title>
 
     <?php
     include 'conn.php';
@@ -50,21 +60,24 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="view_submission.php">Registration & Submission</a>
-                </li>
-                <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teams</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                             <a href="view_team.php">View</a>
                         </li>
                         <li>
-                            <a href="add_emp.php">Add Employee</a>
+                            <a href="add_team.php">Add Employee</a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a href="view_contact.php">Contact</a>
+                </li>
+                <li>
+                    <a href="add_to_gallery.php">Gallery</a>
+                </li>
+                <li>
+                    <a href="logout.php">Logout</a>
                 </li>
             </ul>
 
@@ -77,6 +90,34 @@
                 <h2>Create Events</h2>
                 <hr>
                 <br>
+
+                <?php 
+                if (isset($_POST["insert_btn"])) {
+                    $e_name = $_POST['e_name'];
+                    $e_startreg = $_POST['e_startreg'];
+                    $e_endreg = $_POST['e_endreg'];
+                    $e_startsub = $_POST['e_startsub'];
+                    $e_endsub = $_POST['e_endsub'];
+                    $e_price = $_POST['e_price'];
+                    $e_paymentlink = $_POST['e_paymentlink'];
+                    $image = $_FILES["e_poster"]['name'];
+                    $tmp_name = $_FILES["e_poster"]['tmp_name'];
+
+                    // insert query for event table
+                    $insert = "INSERT INTO events(e_name, e_startreg, e_endreg, e_startsub, e_endsub, e_poster, e_price, e_paymentlink) 
+                    VALUES('$e_name', '$e_startreg', '$e_endreg', '$e_startsub', '$e_endsub', '$image', '$e_price', '$e_paymentlink')";
+
+                    $run_insert = mysqli_query($conn, $insert);
+
+                    if ($run_insert === True) {
+                        move_uploaded_file($tmp_name, "event_poster/$image");
+                    }
+                    unset($_POST["insert_btn"]);
+                    header("Location: view_events.php");
+                    exit();
+                }
+                    
+                ?> 
 
                 <form action="create_events.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
@@ -104,45 +145,22 @@
                         <input type="file" class="form-control" name="e_poster" required>
                     </div>
                     <div class="form-group">
+                        <label for="e_poster" style="color: Red;">If Event is Free of Cost Type "Free" (without quotes) in Event Price and Event Payment Link</label>
+                        <label for="e_poster" style="color: Green;">Else Type the Cost in Numerical Form and Input the correct Payment link</label>
+                    </div>
+                    <div class="form-group">
                         <label for="e_price">Event Price:</label>
                         <input type="text" class="form-control" placeholder="Cost" name="e_price" required>
                     </div>
                     <div class="form-group">
                         <label for="e_paymentlink">Event Payment Link:</label>
-                        <input type="text" class="form-control" placeholder="Payment Link" name="e_paymentlink" required>
+                        <input type="text" class="form-control" placeholder="Payment Link" name="e_paymentlink" >
                     </div>
                     <input type="submit" name="insert_btn" class="btn btn-primary" />
-                    <button onclick="document.location='admin_events.php'">View Events</button>
+                    <button class = "btn btn-success" onclick="document.location='view_events.php'">View Events</button>
                 </form>
 
-                <?php
-                if (isset($_POST["insert_btn"])) {
-                    $e_name = $_POST['e_name'];
-                    $e_startreg = $_POST['e_startreg'];
-                    $e_endreg = $_POST['e_endreg'];
-                    $e_startsub = $_POST['e_startsub'];
-                    $e_endsub = $_POST['e_endsub'];
-                    $e_price = $_POST['e_price'];
-                    $e_paymentlink = $_POST['e_paymentlink'];
-                    $image = $_FILES["e_poster"]['name'];
-                    $tmp_name = $_FILES["e_poster"]['tmp_name'];
-
-                    // insert query for event table
-                    $insert = "INSERT INTO events(e_name, e_startreg, e_endreg, e_startsub, e_endsub, e_poster, e_price, e_paymentlink) 
-                    VALUES('$e_name', '$e_startreg', '$e_endreg', '$e_startsub', '$e_endsub', '$image', '$e_price', '$e_paymentlink')";
-
-                    $run_insert = mysqli_query($conn, $insert);
-
-                    if ($run_insert === True) {
-                        echo "Event has been Created";
-                        move_uploaded_file($tmp_name, "event_poster/$image");
-                    } else {
-                        echo "try agian";
-                    }
-
-                    unset($_POST["insert_btn"]);
-                }
-                ?>
+                
 
             </div>
         </div>

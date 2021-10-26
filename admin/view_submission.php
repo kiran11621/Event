@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if((isset($_SESSION['role']) && $_SESSION['role'] == "admin")){
+    
+}else{
+    http_response_code(404);
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +32,7 @@
     <link rel="stylesheet" href="navbar.css" />
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <title>Submit</title>
+    <title>Admin - View Submission</title>
     <?php 
         include 'conn.php';
     ?>
@@ -50,21 +60,24 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="view_submission.php">Registration & Submission</a>
-                </li>
-                <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teams</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                         <a href="view_team.php">View</a>
                     </li>
                     <li>
-                        <a href="add_emp.php">Add Employee</a>
+                        <a href="add_team.php">Add Employee</a>
                     </li>
                     </ul>
                 </li>
                 <li>
                     <a href="view_contact.php">Contact</a>
+                </li>
+                <li>
+                    <a href="add_to_gallery.php">Gallery</a>
+                </li>
+                <li>
+                    <a href="logout.php">Logout</a>
                 </li>
             </ul>
             
@@ -87,14 +100,14 @@
         <th>Name</th>
         <th>Email</th>
         <th>Mobile Number</th>
-        <th>class of studying</th>
+        <th>Class of Studying</th>
         <th>School</th>
         <th>City</th>
-        <th>Receipt screenshot</th>
-        <th>Work submission</th>
+        <th>Receipt Screenshot</th>
+        <th>Work Submission</th>
       </tr>
     </thead>
-    <tbody>
+   <tbody>
 
     <?php
                                 if(isset($_GET['view'])){
@@ -127,7 +140,17 @@
                                         <td style="text-align:center"><?php echo $u_school; ?></td>
                                         <td style="text-align:center"><?php echo $u_city; ?></td>
                                         <td style="text-align:center"><a href="receipt/<?php echo $u_receiptno; ?>"><img src="receipt/<?php echo $u_receiptno; ?>" height="50px" ;></a></td>
-                                        <td style="text-align:center"><a href="submission/<?php echo $u_submission ?>"><img src="submission/<?php echo $u_submission; ?>" height="50px" alt="Not Submitted" ;></a></td>
+                                        <?php                 
+                                        $file ="submission/".$u_submission;       
+                                        $mime = mime_content_type($file); ?>
+                                        <?php if(strstr($mime, "video/")){ ?>
+                                            <td style="text-align:center"><a href="submission/<?php echo $u_submission; ?>"> <video width="150px" height="150px" controls>
+                            <source src="submission<?php echo $u_image; ?>" type="video/mp4">
+                        </video></a></td>
+                                       <?php }else if(strstr($mime, "image/")){ ?>
+                                           <td style="text-align:center"><a href="submission/<?php echo $u_submission; ?>"><img src="submission/<?php echo $u_submission; ?>" height="50px" alt="Not Submitted" ;></a></td>
+                                        <?php } ?>
+                                       
                                     </tr>
                                 <?php } ?>
       

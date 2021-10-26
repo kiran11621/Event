@@ -5,14 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>LPV Events - Contact Us</title>
+    <title>LPV Events - Details</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+    <link href="assets/img/lpv_logo.png" rel="icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -96,8 +94,8 @@
 
             <nav aria-label="breadcrumb" style="background-color: #37517e; padding: 5px; margin-left: 10%; margin-right: 10%;">
                 <ol class="breadcrumb">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="team.php">Team</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Data</li>
                 </ol>
             </nav>
@@ -107,13 +105,10 @@
             <div class="container">
                 <div class="team-container">
 
-
                     <div class="team-detail">
                         <div class="row">
                             <div class="col-xs-10 col-md-2 float-left"><img src="admin/team_profile_picture/<?php echo $t_profile_image; ?>" alt="" width="100%" height="160px" style="border: 1px solid #ccc;" />
                             </div>
-
-
 
                             <div class="col-xs-11 col-md-10 float-left">
                                 <h1><?php echo $t_name; ?></h1>
@@ -154,15 +149,14 @@
     <br><br><br>
 
     <footer>
-        <div style="background-color: #37517e; bottom:0;">
-            <div class="container footer-bottom clearfix text-bright">
-                <div class="copyrigh text-bright" style="color: white; text-align:center; padding: 5px;">
-                    &copy; Copyright <strong><span> LPV Weltweit Solutions Private Limited</span></strong>. All Rights Reserved
-                    <p>CIN# U74999DL2020PTC364712</p>
+            <div style="background-color: #37517e; bottom:0;">
+                <div class="container footer-bottom clearfix text-bright">
+                    <div class="copyrigh text-bright" style="color: white; text-align:center; padding: 5px;">
+                    &copy; Copyright <strong><span> Harshkumar-14, Surajit-21, Kiran-50</span></strong>. All Rights Reserved
+                </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
     <!-- End Footer -->
     </main>
     <!-- End #main -->

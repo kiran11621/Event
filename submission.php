@@ -5,14 +5,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>LPV Events - Contact Us</title>
+    <title>LPV Events - Submission</title>
+    
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+    <link href="assets/img/lpv_logo.png" rel="icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -135,8 +134,6 @@
                   </div>';
         }
 
-
-
         unset($_POST["insert_btn"]);
     }
     ?>
@@ -176,6 +173,7 @@
                     </div>
                     <br><br>
                     <input type="submit" name="insert_btn" class="btn btn-primary" />
+                    <a href="index.php"><button type="button" class="btn btn-md text-light" style="background-color: #6c757d;">Back</button></a>
                 </form>
             </div>
         </div>
@@ -183,15 +181,14 @@
     <br><Br><br><Br><br><br>
 
     <footer>
-        <div style="background-color: #37517e; bottom:0;">
-            <div class="container footer-bottom clearfix text-bright">
-                <div class="copyrigh text-bright" style="color: white; text-align:center; padding: 5px;">
-                    &copy; Copyright <strong><span> LPV Weltweit Solutions Private Limited</span></strong>. All Rights Reserved
-                    <p>CIN# U74999DL2020PTC364712</p>
+            <div style="background-color: #37517e; bottom:0;">
+                <div class="container footer-bottom clearfix text-bright">
+                    <div class="copyrigh text-bright" style="color: white; text-align:center; padding: 5px;">
+                    &copy; Copyright <strong><span> Harshkumar-14, Surajit-21, Kiran-50</span></strong>. All Rights Reserved
+                </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
     <!-- End Footer -->
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

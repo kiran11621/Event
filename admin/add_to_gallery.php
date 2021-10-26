@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="navbar.css" />
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <title>Create Event</title>
-
+    <title>Admin - Gallery</title>
+    <link href="lpv_logo.png" rel="icon">
     <?php
     include 'conn.php';
     ?>
@@ -59,12 +59,19 @@
                             <a href="view_team.php">View</a>
                         </li>
                         <li>
-                            <a href="add_emp.php">Add Employee</a>
+                            <a href="add_team.php">Add Employee</a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a href="view_contact.php">Contact</a>
+                </li>
+                <li>
+                    <a href="add_to_gallery.php">Gallery</a>
+                    <a href="view_gallery.php">View gallery</a>
+                </li>
+                <li>
+                    <a href="logout.php">Logout</a>
                 </li>
             </ul>
 
@@ -74,7 +81,7 @@
         <div id="content">
             <div class="container">
                 <br>
-                <h2>Create Events</h2>
+                <h2>Add Images to Gallery</h2>
                 <hr>
                 <br>
 
@@ -108,6 +115,7 @@
                     }
                     ?>
                 </form>
+                <br>
 
                 <form action="add_to_gallery.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
@@ -139,10 +147,10 @@
                     }
                     ?>
                 </form>
-
+<br>
                 <form action="add_to_gallery.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="e_name">Upload Videa Submissions:</label>
+                        <label for="e_name">Upload Video Submissions:</label>
                         <input type="file" class="form-control" placeholder="Event Submission" name="g_image" required>
                     </div>
 
@@ -169,11 +177,11 @@
                         unset($_POST["insert_btn3"]);
                     }
                     ?>
-                </form>
+                </form><br>
 
                 <form action="add_to_gallery.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="e_name">Upload Image of Submissions:</label>
+                        <label for="e_name">Upload Certificate of Submissions:</label>
                         <input type="file" class="form-control" placeholder="Event Submission" name="g_image" required>
                     </div>
 
@@ -201,7 +209,7 @@
                     }
                     ?>
                 </form>
-
+<br>
             </div>
         </div>
     </div>

@@ -10,10 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
+    <link href="assets/img/lpv_logo.png" rel="icon">
+      <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
@@ -94,24 +92,14 @@
 
                 <div class="row content">
                     <div class="col-lg">
-                        <p>
-                            LPV Weltweit Solutions Private Limited is the group company of LPV Weltweit Group and is
-                            committed to offering value added services to your HR, Legal, Accounts, Finance, and Company
-                            Secretarial needs, including need based processes, systems, and performance
-                            enhancement’s so that business can achieve the pre-defined objectives and targets. </p>
-                        <ul>
-                            <li><i class="ri-check-double-line"></i> Our expertise services in business strategy, Legal
-                                and Compliance management, various options to start an new business, Manpower and
-                                management consulting enable us to bring a unique approach
-                                to business solutions.</li>
-                            <li><i class="ri-check-double-line"></i> Our strategy is understanding company needs and
-                                providing the best suitable action out of the available options.</li>
-                            <li><i class="ri-check-double-line"></i> For the Human Capital we provide the real resource
-                                rather than just resume.</li>
-                            <li><i class="ri-check-double-line"></i> As a Corporate Consultants and Advisors, we ensure
-                                that we provide appropriate resolution to the client within the time frame with the best
-                                quality Services.</li>
-                        </ul>
+                       <p>
+                       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque voluptatibus similique ex dolor iusto nemo architecto.  </p>
+               
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, labore.
+                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quo molestias, atque quaerat reiciendis animi ullam officia corporis!</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit ab voluptas tenetur quis necessitatibus quos atque repudiandae debitis distinctio alias! </p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis nam modi quidem a cupiditate deleniti dignissimos amet assumenda inventore, sunt facere.</p>
                         <a href="about.php" class="btn-learn-more">Learn More</a>
                     </div>
                 </div>
@@ -131,6 +119,7 @@
             $start = date_create($row_event['e_startreg']);
             $start = (date_format($start, 'U'));
             $start = (int)($start);
+
             $end_reg = date_create($row_event['e_endreg']);
             $end_reg = (date_format($end_reg, 'U'));
             $end_reg = (int)($end_reg);
@@ -138,9 +127,11 @@
             $start_sub = date_create($row_event['e_startsub']);
             $start_sub = (date_format($start_sub, 'U'));
             $start_sub = (int)($start_sub);
+
             $end = date_create($row_event['e_endsub']);
             $end = date_format($end, 'U');
             $end = (int)($end);
+            
             $current = date('U');
             $current = (int)($current);
 
@@ -244,63 +235,14 @@
         </section>
         <!-- End Cta Section -->
 
-        <!-- ======= Services Section ======= -->
-        <section id="services" class="services section-bg">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-title">
-                    <h2>Services</h2>
-                    <p>LPV Weltweit Solutions Private Limited is the group company of LPV Weltweit Group and is committed to offering value
-                        added services to your HR, Legal, Accounts, Finance, and Company Secretarial needs, including need based processes,
-                        systems, and performance enhancement’s so that business can achieve the pre-defined objectives and targets.
-                    </p>
-                </div>
-
-                <div class="row">
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                            <h4><a href="">Lorem Ipsum</a></h4>
-                            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bx bx-file"></i></div>
-                            <h4><a href="">Sed ut perspici</a></h4>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bx bx-tachometer"></i></div>
-                            <h4><a href="">Magni Dolores</a></h4>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bx bx-layer"></i></div>
-                            <h4><a href="">Nemo Enim</a></h4>
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
+       
         <!-- End Services Section -->
         <footer>
             <div style="background-color: #37517e; bottom:0;">
                 <div class="container footer-bottom clearfix text-bright">
                     <div class="copyrigh text-bright" style="color: white; text-align:center; padding: 5px;">
-                        &copy; Copyright <strong><span> LPV Weltweit Solutions Private Limited</span></strong>. All Rights Reserved
-                        <p>CIN# U74999DL2020PTC364712</p>
-                    </div>
+                    &copy; Copyright <strong><span> Harshkumar-14, Surajit-21, Kiran-50</span></strong>. All Rights Reserved
+                </div>
                 </div>
             </div>
         </footer>

@@ -5,14 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>LPV Events - Contact Us</title>
+    <title>LPV Events - Registration</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+    <link href="assets/img/lpv_logo.png" rel="icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -82,19 +80,33 @@
         $u_std = $_POST["u_std"];
         $u_school = $_POST["u_school"];
         $u_city = $_POST["u_city"];
-        $image = $_FILES["u_receiptno"]['name'];
-        $tmp_name = $_FILES["u_receiptno"]['tmp_name'];
-
+        if($e_price == 'Free' || $e_price == 'FREE' || $e_price == 'free') {
+            $image = 'Free';
+            $tmp_name = 'Free';
+        } else {
+            $image = $_FILES["u_receiptno"]['name'];
+            $tmp_name = $_FILES["u_receiptno"]['tmp_name'];
+        }
         $insert = "INSERT INTO registration_and_submission(e_id, u_name, u_email, u_mobile, u_std, u_school, u_city, u_receiptno) 
         VALUES('$e_id', '$u_name', '$u_email', '$u_mobile', '$u_std', '$u_school', '$u_city', '$image')";
 
         $run_insert = mysqli_query($conn, $insert);
 
         if ($run_insert === True) {
-            echo "Data has inserted";
             move_uploaded_file($tmp_name, "admin/receipt/$image");
+            echo '<br><br><br><div class="container">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Registration Completed!</strong> Looking forward for your submission.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>';
         } else {
-            echo "try agian" . $conn->error;
+            echo '<br><br><br><div class="container">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Sorry!</strong> Your Registration could not be completed.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>';
         }
 
         unset($_POST["insert_btn"]);
@@ -113,7 +125,7 @@
                 <form action="registration.php?reg=<?php echo $e_id; ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="event_name">Student Name:</label>
-                        <input type="text" class="form-control" placeholder="Event Name" name="u_name" required>
+                        <input type="text" class="form-control" placeholder="Enter your Name" name="u_name" required>
                     </div>
                     <br>
                     <div class="form-group">
@@ -123,28 +135,28 @@
                     <br>
                     <div class="form-group">
                         <label for="event_endtime">Mobile Number:</label>
-                        <input type="integer" class="form-control" placeholder="Enter password" name="u_mobile" required>
+                        <input type="integer" class="form-control" placeholder="Enter Mobile Number" name="u_mobile" required>
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="event_date">Class:</label>
-                        <input type="text" class="form-control" id="email" placeholder="Enter email" name="u_std" required>
+                        <input type="text" class="form-control" id="email" placeholder="Enter your Standard" name="u_std" required>
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="event_weekday">School Name:</label>
-                        <input type="text" class="form-control" placeholder="Enter email" name="u_school" required>
+                        <input type="text" class="form-control" placeholder="Enter School Name" name="u_school" required>
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="event_month">City:</label>
-                        <input type="text" class="form-control" placeholder="Enter email" name="u_city" required>
+                        <input type="text" class="form-control" placeholder="Enter City Name" name="u_city" required>
                     </div>
                     <br>
                     <?php if ($e_price == 'Free' || $e_price == 'FREE' || $e_price == 'free') {
                         echo '<br>Free Registration</b>';
                     } else { ?>
-                        <div class="razorpay-embed-btn" data-url="<?php echo $e_paymentlink; ?>" data-text="No Registration Fee" data-color="#528FF0" data-size="large">
+                        <div class="razorpay-embed-btn" data-url="<?php echo $e_paymentlink; ?>" data-text="pay Registration Fee" data-color="#528FF0" data-size="large">
                             <script>
                                 (function() {
                                     var d = document;
@@ -168,23 +180,25 @@
                             </div>
                         <?php } ?>
                         <br><br>
-                        <input type="submit" name="insert_btn" class="btn btn-primary" />
+                        <button type="submit" name="insert_btn" class="btn btn-primary" >Register</button>
+                        <a href="submission.php?sub=<?php echo $e_id; ?>"><button type="button" class="btn btn-success" style="background-color: #6c757d;">Submit Work</button></a>
+
                 </form>
             </div>
         </div>
     </div>
     <br><Br><br>
     <footer>
-        <div style="background-color: #37517e; bottom:0;">
-            <div class="container footer-bottom clearfix text-bright">
-                <div class="copyrigh text-bright" style="color: white; text-align:center; padding: 5px;">
-                    &copy; Copyright <strong><span> LPV Weltweit Solutions Private Limited</span></strong>. All Rights Reserved
-                    <p>CIN# U74999DL2020PTC364712</p>
+            <div style="background-color: #37517e; bottom:0;">
+                <div class="container footer-bottom clearfix text-bright">
+                    <div class="copyrigh text-bright" style="color: white; text-align:center; padding: 5px;">
+                    &copy; Copyright <strong><span> Harshkumar-14, Surajit-21, Kiran-50</span></strong>. All Rights Reserved
+                </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- End Footer -->
+        </footer>
+        <!-- End Footer -->
+        <!-- End Footer -->
 
     </main>
     <!-- End #main -->
